@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./favicon_io/android-chrome-512x512.png" sizes="64x64" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Finance Tracker - A Personal Finance App</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="#home" class="logo"><i class="fas fa-chart-line"></i> Finance Tracker</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tracker">Use Tracker</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="./support.html">Support</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="./login.html" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log In</a>
+                <a href="./sign-up.html" class="btn-head"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home-content" id="home">
+        <div class="intro">
+            <h1>Welcome to Personal Finance Tracker</h1>
+            <p>Track your income and expenses effortlessly with our smart tracker.</p>
+        </div>
+    
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Your data is protected with the latest encryption standards.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Visual Insights</h3>
+                <p>Analyze your financial habits with charts & graphs.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-globe"></i>
+                <h3>Multi-Currency Support</h3>
+                <p>Track finances in different currencies effortlessly.</p>
+            </div>
+        </div>
+    
+        <div class="cta-buttons">
+            <a href="sign-up.html" class="cta-btn">Get Started</a>
+            <a href="login.html" class="cta-btn secondary">Login</a>
+        </div>
+    </section>
+
+    <section class="main-content" id="tracker">
+        <div class="head-text">
+            <h1>Access Your Personal Finance Tracker</h1>
+            <div class="under-head-text"></div>
+        </div>
+
+        <div class="tracker-part">
+            <div class="tracker-balance">
+                Current Balance: <span id="balance" class="current-balance"></span>
+            </div>
+
+            <div class="currency-selection">
+                <label for="currency">Select Currency:</label>
+                <select id="currency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="INR" selected>INR</option>
+                </select>
+            </div>
+
+            <div class="transaction-form">
+                <input type="text" id="description" placeholder="Description" />
+                <input type="number" id="amount" placeholder="Amount" />
+                <select id="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button id="add-transaction-btn">Add Transaction</button>
+                <button id="export-button">Export</button>
+            </div>
+
+            <div class="table-part">
+                <table id="transaction-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="head-text">
+            <h1>How It Works</h1>
+            <div class="under-head-text"></div>
+        </div>
+        <br />
+        <div class="working-content">
+            <div class="left-working">
+                <ul class="ul-items">
+                    <li class="check-list-items">
+                        <i data-feather="check" class="feather icon-check"></i>
+                        <span>Track and manage your income & expenses.</span>
+                    </li>
+                    <li class="check-list-items">
+                        <i data-feather="check" class="feather icon-check"></i>
+                        <span>View financial insights through charts.</span>
+                    </li>
+                    <li class="check-list-items">
+                        <i data-feather="check" class="feather icon-check"></i>
+                        <span>Export data to PDF/CSV for records.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p>Created by Kamal Singh Rathore, Full Stack MERN Developer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

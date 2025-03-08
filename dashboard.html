@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Personal Finance Tracker</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For charts -->
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i> Finance Tracker</a>
+            <ul class="nav-links">
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <h2 id="welcome-message">Welcome, User!</h2>
+        <div class="profile-info">
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Current Balance:</strong> <span id="balance" class="current-balance">₹0.00</span></p>
+        </div>
+
+        <label for="currency">Select Currency:</label>
+        <select id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR" selected>INR</option>
+        </select>
+
+        <div id="transactions" class="transaction-section">
+            <h3>Recent Transactions</h3>
+            <table id="transaction-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Visual Insights Section -->
+        <section id="insights" class="insights">
+            <h3>Financial Insights</h3>
+            <canvas id="incomeExpenseChart"></canvas>
+            <canvas id="monthlyTransactionChart"></canvas>
+        </section>
+    </section>
+
+    <script src="dashboard.js"></script> <!-- Link to JS file -->
+</body>
+</html>

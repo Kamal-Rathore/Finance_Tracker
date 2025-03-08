@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="./favicon_io/android-chrome-512x512.png" sizes="64x64">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./sign-up.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Finance Tracker - Sign Up</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="navbar">
+      <a href="#" class="logo"><i class="fas fa-chart-line"></i> Finance Tracker</a>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+      </ul>
+      <div class="buttons">
+        <a href="./login.html" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log In</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <form class="signup-form" id="signup-form">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="fullname">Full Name <span>*</span></label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address <span>*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number <span>*</span></label>
+        <input type="tel" id="mobile" name="mobile" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password <span>*</span></label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password <span>*</span></label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>feather.replace();</script>
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const fullName = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      try {
+        const response = await fetch("http://localhost:5000/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ full_name: fullName, email, mobile, password }),
+        });
+
+        const data = await response.json();
+        alert(data.message);
+
+        if (response.ok) {
+          window.location.href = "login.html"; // Redirect to login after signup
+        }
+      } catch (error) {
+        alert("Error signing up. Please try again.");
+        console.error("Signup Error:", error);
+      }
+    });
+  </script>
+</body>
+
+</html>
