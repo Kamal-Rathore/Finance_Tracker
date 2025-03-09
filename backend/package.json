@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,4 @@
     "express": "^4.21.2",
     "mysql2": "^3.12.0"
   }
-  
 }
