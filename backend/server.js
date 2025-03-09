@@ -108,7 +108,12 @@ app.post("/support", (req, res) => {
   });
 });
 
-
+app.get('/',(req,res)=>{
+  res.send({
+    activeStatus:true,
+    error:false,
+  })
+})
 
 // Start Server
 const PORT = process.env.PORT || 5000;
